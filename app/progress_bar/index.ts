@@ -10,19 +10,7 @@ export class Progress {
 
   public $progressFill: HTMLElement = document.createElement('div');
 
-  public transform_styles = ['-webkit-transform',
-      '-ms-transform',
-      'transform'];
 
-  
-
-  // public randomize() {
-  //   let rotation = Math.floor(Math.random() * 360);
-  //   for (let i in this.transform_styles) {
-  //     ('.circle .fill').css(this.transform_styles[i],
-  //       'rotate(' + rotation + 'deg)');
-  //   }
-  // }
 
 
   constructor($root: HTMLElement) {
@@ -45,7 +33,17 @@ export class Progress {
     this.$progressCircle.firstChild.classList.add('left');
     this.$progressCircle.lastChild.classList.add('right');
 
-    
+    let fill = document.querySelectorAll('.circle .fill');
+
+    function randomize() {
+      let rotation = Math.floor(Math.random() * 360);
+      for (let i = 0; i < fill.length; i++) {
+        fill[i].style.transform = `rotate(${rotation}deg)`;
+      }
+    }
+    setInterval(function(){
+      randomize();
+    }, 1000);
   }
 
 

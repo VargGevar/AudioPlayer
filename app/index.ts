@@ -61,11 +61,17 @@ class AudioPlayer {
 
       .radial-progress {
         background-color: #d6dadc;
-        color: #97a71d;
         width: 120px;
         height: 120px;
         border-radius: 50%;
-        
+      }
+
+      .mask {
+        clip: rect(0px,120px,120px,60px);
+      }
+
+      .mask {
+        clip: rect(0px, 120px, 120px, 60px);
       }
 
       .mask .left {
@@ -86,13 +92,18 @@ class AudioPlayer {
 
       .circle .fill {
         position: absolute;
-        background-color: #d6dadc;
+        background-color: #97a71d;
         width: 120px;
         height: 120px;
-        transition: ease-in-out 1s;
-        transform: rotate(30deg);
+<<<<<<< HEAD
+        transition: transform 1s;
+        transform: rotate(60deg);
         clip: rect(0px, 60px, 120px, 0px);
-        visibility: hidden;
+        
+=======
+        transition: ease-in-out 1s;
+        clip: rect(0px, 60px, 120px, 0px);
+>>>>>>> 32be98e1922bce45e66208c19ae7708de99936cb
         border-radius: 50%;
       }
       
