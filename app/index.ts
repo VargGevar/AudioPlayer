@@ -1,7 +1,7 @@
 import { Favorite } from "./favourite";
 import { Volume } from "./volume";
 import { Controls } from "./controls";
-import { Progress } from "./progress_bar";
+import { ProgressBar } from "./progress_bar";
 
 class AudioPlayer {
 
@@ -17,7 +17,8 @@ class AudioPlayer {
 
   public controls = new Controls(this.$elem, this.music)
 
-  public progress = new Progress(this.$elem)
+  public progressBar = new ProgressBar(this.$elem)
+
 
   public style() {
     const $style = document.createElement('style')
@@ -59,45 +60,9 @@ class AudioPlayer {
         color: #ffffff;
       }
 
-      .radial-progress {
-        background-color: #d6dadc;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-      }
-
-      .mask {
-        clip: rect(0px,120px,120px,60px);
-      }
-
-      .mask {
-        clip: rect(0px, 120px, 120px, 60px);
-      }
-
-      .mask .left {
-        clip: rect(0px, 120px, 120px, 60px);
-      }
-
-      .mask .left .fill {
-        clip: rect(0px, 60px, 120px, 0px);
-      }
-
-      .mask .right {
-        clip: rect(0px, 60px, 120px, 0px);
-      }
-
-      .mask .right .fill {
-        clip: rect(0px, 120px, 120px, 60px);
-      }
-
-      .circle .fill {
-        position: absolute;
-        background-color: #97a71d;
-        width: 120px;
-        height: 120px;
-        transition: transform 1s;
-        clip: rect(0px, 60px, 120px, 0px);
-        border-radius: 50%;
+      #container {
+        width: 100px;
+        height: 100px;
       }
       
     `
