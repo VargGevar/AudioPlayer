@@ -16,10 +16,10 @@ class AudioPlayer {
   public music: HTMLAudioElement = new Audio('/assets/music.mp3')
 
   public controls = new Controls(this.$elem, this.music)
+  
+  public progressbar = new ProgressBar(this.$elem)
 
-  public progressBar = new ProgressBar(this.$elem)
-
-
+  
   public style() {
     const $style = document.createElement('style')
     $style.innerHTML = `

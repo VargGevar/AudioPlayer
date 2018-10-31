@@ -1,17 +1,25 @@
+import { Circle } from "progressbar.js";
+
 export class ProgressBar {
 
   public $root: HTMLElement
 
   public $elem: HTMLElement = document.createElement('div');
 
+  public bar = new Circle('#container', {
+    strokeWidth: 6, 
+    easing: 'easeInOut',
+    duration: 1400,
+    color: '#FFEA82',
+    trailColor: '#eee',
+    trailWidth: 1,
+    svgStyle: null
+  });
 
   constructor($root: HTMLElement) {
     this.$root = $root
     this.$root.appendChild(this.$elem)
     this.$elem.id = 'container'
-
-    var ProgressBar = require('progressbar.js')
-    var line = new ProgressBar.Line('#container');
 
   }
 
