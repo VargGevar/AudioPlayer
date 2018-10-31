@@ -43,6 +43,7 @@ class AudioPlayer {
 
       .controls {
         display: flex;
+        position: absolute;
         max-width: 150px;
         width: 100%;
         height: 40px;
@@ -53,6 +54,8 @@ class AudioPlayer {
         padding-left: 10px;
         padding-right: 10px;
         box-sizing: border-box;
+        top: calc(50% - 20px);
+        left: calc(50% - 75px);
       }
 
       i {
@@ -61,8 +64,11 @@ class AudioPlayer {
       }
 
       #container {
-        width: 100px;
-        height: 100px;
+        top: calc(50% - 84px);
+        left: calc(50% - 84px);
+        position: absolute;
+        width: 168px;
+        height: 168px;
       }
       
     `
