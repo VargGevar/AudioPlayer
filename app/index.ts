@@ -38,8 +38,8 @@ class AudioPlayer {
 
       .audioplayer div:nth-of-type(1) { order: 1; }
       .audioplayer div:nth-of-type(2) { order: 3; }
-      .audioplayer div:nth-of-type(3) { order: 2; }
       .audioplayer div:nth-of-type(4) { order: 2; }
+      .audioplayer div:nth-of-type(3) { order: 2; }
 
       .controls {
         display: flex;
