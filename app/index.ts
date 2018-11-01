@@ -16,10 +16,11 @@ class AudioPlayer {
   public music: HTMLAudioElement = new Audio('/assets/music.mp3')
 
   public controls = new Controls(this.$elem, this.music)
-  
-  public progressbar = new ProgressBar(this.$elem)
+
+  public progressbar = new ProgressBar(this.$elem, this.music)
 
   
+
   public style() {
     const $style = document.createElement('style')
     $style.innerHTML = `
@@ -96,6 +97,8 @@ class AudioPlayer {
     this.$root.appendChild(this.$elem)
     this.$elem.classList.add('audioplayer')
     this.style()
+
+    
   }
 
 
@@ -116,3 +119,5 @@ const $fontAwesome = document.createElement('link')
 $fontAwesome.rel = 'stylesheet'
 $fontAwesome.href = 'https://use.fontawesome.com/releases/v5.4.1/css/all.css'
 if (document.head) document.head.appendChild($fontAwesome)
+
+
