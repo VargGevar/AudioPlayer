@@ -7,12 +7,12 @@ export class ProgressBar {
   public $elem: HTMLElement = document.createElement('div');
 
   public bar = new Circle(this.$elem, {
-    strokeWidth: 6,
+    strokeWidth: 5,
     easing: 'easeInOut',
     duration: 1400,
-    color: '#FFEA82',
-    trailColor: '#eee',
-    trailWidth: 1,
+    color: '#007cce',
+    trailColor: '#000',
+    trailWidth: 5,
     svgStyle: null
   });
 

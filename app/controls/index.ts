@@ -3,6 +3,8 @@ export class Controls {
   public $root: HTMLElement
 
   public $elem: HTMLElement = document.createElement('div');
+  
+  public $panel: HTMLElement = document.createElement('div');
 
   public $btnPrev: HTMLElement = document.createElement('i');
 
@@ -34,16 +36,19 @@ export class Controls {
     this.$music = $music
     this.$root.appendChild(this.$elem)
     this.$elem.classList.add('controls')
+
+    this.$panel.classList.add('controls__panel')
+    this.$elem.appendChild(this.$panel)
     
     this.$btnPrev.classList.add('fas', 'fa-fast-backward')
-    this.$elem.appendChild(this.$btnPrev)
+    this.$panel.appendChild(this.$btnPrev)
 
     this.$btnPlay.classList.add('fas', 'fa-play')
-    this.$elem.appendChild(this.$btnPlay)
+    this.$panel.appendChild(this.$btnPlay)
     this.$btnPlay.addEventListener('click', this.toggle.bind(this))
 
     this.$btnNext.classList.add('fas', 'fa-fast-forward')
-    this.$elem.appendChild(this.$btnNext)
+    this.$panel.appendChild(this.$btnNext)
 
   }
 

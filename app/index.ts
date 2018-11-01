@@ -45,17 +45,33 @@ class AudioPlayer {
         display: flex;
         position: absolute;
         max-width: 150px;
+        height: 150px;
+        width: 100%;
+        top: calc(50% - 75px);
+        left: calc(50% - 75px);
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        background: url('../assets/cover.png');
+        z-index: 10;
+        background-repeat: no-repeat;
+        background-clip: content-box;
+        background-position: 50% 50%;
+        overflow: hidden;
+      }
+
+      .controls__panel {
+        display: flex;
+        max-width: 150px;
         width: 100%;
         height: 40px;
         justify-content: space-between;
         align-items: center;
-        z-index: 10;
         background: #000;
         padding-left: 10px;
         padding-right: 10px;
         box-sizing: border-box;
-        top: calc(50% - 20px);
-        left: calc(50% - 75px);
+        
       }
 
       i {
