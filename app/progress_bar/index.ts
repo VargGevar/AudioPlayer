@@ -24,10 +24,11 @@ export class ProgressBar {
 
   public animate() {
     this.active = !this.active
-    if (this.active) {
-      this.bar.animate(1.0, {
-        duration: 2000
-      });
+    let duration = this.$music.duration
+    let time = this.$music.currentTime
+    this.bar.animate(0)
+    if (this.active && duration > 0) {
+      this.bar.animate(time/duration)
     }
     else {
       this.bar.stop()
@@ -42,7 +43,11 @@ export class ProgressBar {
     this.$root.appendChild(this.$elem)
     this.$elem.id = 'container'
 
-    this.animate()
+    $music.addEventListener('timeupdate', () => {
+      this.animate()
+    })
+
+   
 
   }
 

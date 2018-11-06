@@ -19,7 +19,7 @@ class AudioPlayer {
 
   public progressbar = new ProgressBar(this.$elem, this.music)
 
-  
+
 
   public style() {
     const $style = document.createElement('style')
@@ -80,6 +80,12 @@ class AudioPlayer {
         color: #ffffff;
       }
 
+      i:hover {
+        .volume-modal {
+          display: flex;
+        }
+      }
+
       #container {
         top: calc(50% - 84px);
         left: calc(50% - 84px);
@@ -87,6 +93,17 @@ class AudioPlayer {
         width: 168px;
         height: 168px;
       }
+
+      .volume-modal {
+        display: none;
+        width: 25px;
+        height: 100px;
+        position: absolute;
+        background-color: #fff;
+        top: 10%;
+        left: 90%;
+      }
+      
       
     `
     document.body.appendChild($style)
@@ -98,7 +115,7 @@ class AudioPlayer {
     this.$elem.classList.add('audioplayer')
     this.style()
 
-    
+
   }
 
 

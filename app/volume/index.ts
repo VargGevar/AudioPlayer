@@ -13,12 +13,12 @@ export class Volume {
   public toggle() {
     this.active = !this.active
     if (this.active) {
-      this.$icon.classList.remove('fa-volume-down');
+      this.$icon.classList.remove('fa-volume-up');
       this.$icon.classList.add('fa-volume-mute');
     }
     else {
       this.$icon.classList.remove('fa-volume-mute');
-      this.$icon.classList.add('fa-volume-down');
+      this.$icon.classList.add('fa-volume-up');
     }
   }
 

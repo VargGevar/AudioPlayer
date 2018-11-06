@@ -3,7 +3,7 @@ export class Controls {
   public $root: HTMLElement
 
   public $elem: HTMLElement = document.createElement('div');
-  
+
   public $panel: HTMLElement = document.createElement('div');
 
   public $btnPrev: HTMLElement = document.createElement('i');
@@ -23,6 +23,10 @@ export class Controls {
       this.$btnPlay.classList.add('fa-pause');
       this.$music.play()
     }
+    else if (this.$music.ended) {
+      this.$btnPlay.classList.remove('fa-pause');
+      this.$btnPlay.classList.add('fa-play');
+    }
     else {
       this.$btnPlay.classList.remove('fa-pause');
       this.$btnPlay.classList.add('fa-play');
@@ -39,7 +43,7 @@ export class Controls {
 
     this.$panel.classList.add('controls__panel')
     this.$elem.appendChild(this.$panel)
-    
+
     this.$btnPrev.classList.add('fas', 'fa-fast-backward')
     this.$panel.appendChild(this.$btnPrev)
 
