@@ -11,9 +11,9 @@ class AudioPlayer {
 
   public favorite = new Favorite(this.$elem)
 
-  public volume = new Volume(this.$elem)
-
   public music: HTMLAudioElement = new Audio('/assets/music.mp3')
+
+  public volume = new Volume(this.$elem, this.music)
 
   public controls = new Controls(this.$elem, this.music)
 
@@ -80,10 +80,12 @@ class AudioPlayer {
         color: #ffffff;
       }
 
-      i:hover {
-        .volume-modal {
-          display: flex;
-        }
+      .volume {
+        position: relative;
+      }
+
+      .volume:hover .volume-bar {
+        display: flex;
       }
 
       #container {
@@ -94,14 +96,22 @@ class AudioPlayer {
         height: 168px;
       }
 
-      .volume-modal {
+      .volume-bar {
         display: none;
-        width: 25px;
+        width: 100px;
         height: 100px;
         position: absolute;
         background-color: #fff;
-        top: 10%;
-        left: 90%;
+        top: calc(0% - 100px);
+        left: calc(50% - 12.5px);
+      }
+
+      .volume-bar-toggle {
+        width: 100px;
+        height: 20px;
+        display: inline-block;
+        line-height: 16px;
+        transform: rotate(90deg);
       }
       
       
