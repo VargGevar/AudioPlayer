@@ -16,7 +16,6 @@ export class Volume {
 
   public toggle() {
     this.active = !this.active
-    let currentValue = +this.$volumeBarToggle.value;
     if (this.active) {
       this.$icon.classList.remove('fa-volume-down');
       this.$icon.classList.add('fa-volume-mute');
@@ -30,8 +29,8 @@ export class Volume {
   }
 
   public volumeToggle() {
-    let currentValue = +this.$volumeBarToggle.value;
-    this.$music.volume = currentValue / 100;
+    const toggle = this.$volumeBarToggle;
+    toggle.oninput = () => this.$music.volume = +this.$volumeBarToggle.value / 100;
   }
 
   constructor($root: HTMLElement, $music: HTMLAudioElement) {
@@ -49,8 +48,10 @@ export class Volume {
 
     this.$volumeBarToggle.classList.add('volume-bar-toggle');
     this.$volumeBarToggle.type = 'range';
-    Object.assign(this.$volumeBarToggle, { min: 0, max: 100, value: 50, style: 'width: 150px;', onchange: this.volumeToggle() });
+    Object.assign(this.$volumeBarToggle, { min: 0, max: 100, style: 'width: 150px;' });
     this.$volumeBar.appendChild(this.$volumeBarToggle);
+
+    this.volumeToggle();
 
   }
 
