@@ -7,7 +7,7 @@ export class Volume {
   public $icon: HTMLElement = document.createElement('i')
 
   public $volumeBar: HTMLElement = document.createElement('div')
-  
+
   public $volumeBarToggle: HTMLInputElement = document.createElement('input')
 
   public active: boolean = false
@@ -16,14 +16,22 @@ export class Volume {
 
   public toggle() {
     this.active = !this.active
+    let currentValue = +this.$volumeBarToggle.value;
     if (this.active) {
-      this.$icon.classList.remove('fa-volume-up');
+      this.$icon.classList.remove('fa-volume-down');
       this.$icon.classList.add('fa-volume-mute');
+      this.$music.volume = 0;
     }
     else {
       this.$icon.classList.remove('fa-volume-mute');
-      this.$icon.classList.add('fa-volume-up');
+      this.$icon.classList.add('fa-volume-down');
+      this.$music.volume = 0.5;
     }
+  }
+
+  public volumeToggle() {
+    let currentValue = +this.$volumeBarToggle.value;
+    this.$music.volume = currentValue / 100;
   }
 
   constructor($root: HTMLElement, $music: HTMLAudioElement) {
@@ -38,13 +46,11 @@ export class Volume {
 
     this.$volumeBar.classList.add('volume-bar')
     this.$elem.appendChild(this.$volumeBar)
-    
-    this.$volumeBarToggle.classList.add('volume-bar-toggle')
-    this.$volumeBarToggle.type = 'range';
-    Object.assign(this.$volumeBarToggle, { min: 0, max: 100, value: 51, style: 'width: 150px;', oninput: this.$music.volume})
-    this.$volumeBar.appendChild(this.$volumeBarToggle)
 
-    let value = this.$volumeBarToggle.value;
+    this.$volumeBarToggle.classList.add('volume-bar-toggle');
+    this.$volumeBarToggle.type = 'range';
+    Object.assign(this.$volumeBarToggle, { min: 0, max: 100, value: 50, style: 'width: 150px;', onchange: this.volumeToggle() });
+    this.$volumeBar.appendChild(this.$volumeBarToggle);
 
   }
 

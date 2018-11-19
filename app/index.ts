@@ -98,12 +98,16 @@ class AudioPlayer {
 
       .volume-bar {
         display: none;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
         width: 100px;
-        height: 100px;
+        height: 20px;
         position: absolute;
         background-color: #fff;
-        top: calc(0% - 100px);
-        left: calc(50% - 12.5px);
+        top: calc(0% - 60px);
+        left: calc(50% - 52.5px);
+        transform: rotate(-90deg);
       }
 
       .volume-bar-toggle {
@@ -111,7 +115,7 @@ class AudioPlayer {
         height: 20px;
         display: inline-block;
         line-height: 16px;
-        transform: rotate(90deg);
+        margin: 5px;
       }
       
       
