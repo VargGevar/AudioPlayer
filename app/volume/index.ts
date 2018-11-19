@@ -24,7 +24,7 @@ export class Volume {
     else {
       this.$icon.classList.remove('fa-volume-mute');
       this.$icon.classList.add('fa-volume-down');
-      this.$music.volume = 0.5;
+      this.$music.volume = +this.$volumeBarToggle.value / 100;
     }
   }
 
