@@ -11,7 +11,7 @@ class AudioPlayer {
 
   public favorite = new Favorite(this.$elem)
 
-  public music: HTMLAudioElement = new Audio('/assets/music.mp3')
+  public music: HTMLAudioElement = new Audio(this.music.src)
 
   public volume = new Volume(this.$elem, this.music)
 
@@ -123,11 +123,25 @@ class AudioPlayer {
     document.body.appendChild($style)
   }
 
+  public trackToggle() {
+    const playlist = ['/assets/music.mp3','/assets/andromeda.mp3', '/assets/battle.mp3', '/assets/dressed-to-kill.mp3', '/assets/robeast.mp3', '/assets/poison.mp3'];
+    let current = 0;
+    this.music.src = playlist[current]
+    for (let i = 0; i < playlist.length; i++) {
+      if () {
+        
+      }
+    }
+
+  }
+
   constructor($root: HTMLElement) {
     this.$root = $root
     this.$root.appendChild(this.$elem)
     this.$elem.classList.add('audioplayer')
     this.style()
+     
+
 
 
   }
@@ -145,6 +159,7 @@ class AudioPlayer {
 
 }
 new AudioPlayer(document.body)
+
 
 const $fontAwesome = document.createElement('link')
 $fontAwesome.rel = 'stylesheet'
