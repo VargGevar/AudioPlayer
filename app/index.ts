@@ -123,17 +123,7 @@ class AudioPlayer {
     document.body.appendChild($style)
   }
 
-  public trackToggle() {
-    const playlist = ['/assets/music.mp3','/assets/andromeda.mp3', '/assets/battle.mp3', '/assets/dressed-to-kill.mp3', '/assets/robeast.mp3', '/assets/poison.mp3'];
-    let current = 0;
-    this.music.src = playlist[current]
-    for (let i = 0; i < playlist.length; i++) {
-      if () {
-        
-      }
-    }
 
-  }
 
   constructor($root: HTMLElement) {
     this.$root = $root
