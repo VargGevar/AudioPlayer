@@ -38,16 +38,12 @@ export class Controls {
   public trackToggle() {
     const playlist = ['/assets/music.mp3', '/assets/andromeda.mp3', '/assets/battle.mp3', '/assets/dressed-to-kill.mp3', '/assets/robeast.mp3', '/assets/poison.mp3'];
     let current = 0;
-    this.$music.src = playlist[current]
-    for (let i = 0; i < playlist.length; i++) {
-      if (this.$music.ended || this.$btnNext) {
-        this.$btnNext.addEventListener('click', () => {
-          current++;
-        })
-      } else this.$btnPrev.addEventListener('click', () => {
-        current--;
-      })
-    }
+    this.$music.addEventListener('ended', () => {
+      current = ++current < playlist.length ? current : 0;
+      this.$music.src = playlist[current];
+      this.$music.play();
+    }, true);
+    
   }
 
   constructor($root: HTMLElement, $music: HTMLAudioElement) {
@@ -69,6 +65,8 @@ export class Controls {
     this.$btnNext.classList.add('fas', 'fa-fast-forward')
     this.$panel.appendChild(this.$btnNext)
 
+
+    this.trackToggle();
   }
 
 

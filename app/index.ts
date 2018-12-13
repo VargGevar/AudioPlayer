@@ -11,13 +11,13 @@ class AudioPlayer {
 
   public favorite = new Favorite(this.$elem)
 
-  public music: HTMLAudioElement = new Audio(this.music.src)
+  public $music: HTMLAudioElement = new Audio('/assets/music.mp3')
 
-  public volume = new Volume(this.$elem, this.music)
+  public volume = new Volume(this.$elem, this.$music)
 
-  public controls = new Controls(this.$elem, this.music)
+  public controls = new Controls(this.$elem, this.$music)
 
-  public progressbar = new ProgressBar(this.$elem, this.music)
+  public progressbar = new ProgressBar(this.$elem, this.$music)
 
 
 
