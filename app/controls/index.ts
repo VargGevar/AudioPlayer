@@ -32,7 +32,6 @@ export class Controls {
       this.$btnPlay.classList.add('fa-play');
       this.$music.pause()
     }
-
   }
 
   public trackToggle() {
@@ -64,7 +63,6 @@ export class Controls {
 
     this.$btnNext.classList.add('fas', 'fa-fast-forward')
     this.$panel.appendChild(this.$btnNext)
-
 
     this.trackToggle();
   }
